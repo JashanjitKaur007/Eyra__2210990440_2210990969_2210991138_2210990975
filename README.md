@@ -373,18 +373,11 @@ If you are experiencing a mental health crisis or severe symptoms, please seek i
 
 ### Planned Enhancements
 
-- **Advanced Emotion Detection** – Improved facial analysis with better accuracy
-- **Personalized AI Responses** – Machine learning models fine-tuned for individual user needs
-- **Professional Integration** – Secure referral pathway to licensed therapists
-- **Advanced Analytics Dashboard** – Deeper insights into mental health patterns over time
 - **Mobile App** – Native iOS and Android applications
 - **Peer Support Community** – Moderated peer-to-peer support features
 - **Multi-Language Support** – Expanded language coverage beyond current offerings
-- **Offline Mode** – Ability to access certain features without internet connection
-- **Integration with Wearables** – Heart rate, sleep, and activity data for holistic health tracking
 
 ---
-
 
 ## Contributing
 
@@ -399,14 +392,6 @@ We welcome contributions from the community. To contribute:
 Please ensure all code adheres to our style guidelines and includes appropriate tests.
 
 ---
-
-
-## License
-
-This project is licensed under the MIT License – see the LICENSE file for details.
-
----
-
 
 ## Support
 
