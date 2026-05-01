@@ -2,7 +2,7 @@
 
 > **Project Title:** Eyra  
 > **Project Type:** Copyright  
-> **Submission Status:** Ready for Submission 
+> **Submission Status:** Submitted
 
 ### 👥 Team Details
 
@@ -15,9 +15,11 @@
 
 ---
 
+
 An intelligent, accessible, and user-centric platform designed to provide evidence-based mental health support through conversational AI, clinically-grounded assessments, and intuitive design.
 
 ---
+
 
 ## 📋 Table of Contents
 
@@ -34,6 +36,7 @@ An intelligent, accessible, and user-centric platform designed to provide eviden
 
 ---
 
+
 ## Overview
 
 Eyra is a comprehensive mental health support platform that bridges the gap between users seeking help and accessible mental wellness resources. By combining advanced AI technology with clinical psychology principles, Eyra creates a safe, private space for individuals to explore their emotional well-being without judgment or barriers.
@@ -42,35 +45,28 @@ Eyra is a comprehensive mental health support platform that bridges the gap betw
 
 ---
 
+
 ## 📸 Screenshots
 
 <details>
-<summary>📸 View Project Screenshots</summary>
+<summary>Click to view all screenshots</summary>
 
 <br>
 
 <p align="center">
-  <img src="ScreenShots%20of%20Project/1-Home%20Page.png" width="45%">
-  <img src="ScreenShots%20of%20Project/2-homepage.png" width="45%">
-</p>
-
-<p align="center">
-  <img src="ScreenShots%20of%20Project/3-chat.png" width="45%">
-  <img src="ScreenShots%20of%20Project/4-conversation%20report.png" width="45%">
-</p>
-
-<p align="center">
-  <img src="ScreenShots%20of%20Project/5-Tests%20dropdown%20menu.png" width="45%">
-  <img src="ScreenShots%20of%20Project/6-Test%20UI.png" width="45%">
-</p>
-
-<p align="center">
-  <img src="ScreenShots%20of%20Project/7-Depresssoin%20Tests%20Sample%20-%20result,%20email,%20more%20info.png" width="60%">
+  <img src="ScreenShots%20of%20Project/1-Home%20Page.png" width="700"><br><br>
+  <img src="ScreenShots%20of%20Project/2-homepage.png" width="700"><br><br>
+  <img src="ScreenShots%20of%20Project/3-chat.png" width="700"><br><br>
+  <img src="ScreenShots%20of%20Project/4-conversation%20report.png" width="700"><br><br>
+  <img src="ScreenShots%20of%20Project/5-Tests%20dropdown%20menu.png" width="700"><br><br>
+  <img src="ScreenShots%20of%20Project/6-Test%20UI.png" width="700"><br><br>
+  <img src="ScreenShots%20of%20Project/7-Depresssoin%20Tests%20Sample%20-%20result,%20email,%20more%20info.png" width="700">
 </p>
 
 </details>
 
 ---
+
 
 ## Features
 
@@ -131,6 +127,7 @@ Advanced emotion detection through real-time facial analysis:
 
 ---
 
+
 ## Tech Stack
 
 ### Frontend
@@ -153,6 +150,7 @@ Advanced emotion detection through real-time facial analysis:
 - **JWT (JSON Web Tokens)** – Secure user authentication and authorization
 
 ---
+
 
 ## Architecture
 
@@ -213,6 +211,7 @@ State Management (Context API) → UI Update
 ```
 
 ---
+
 
 ## Installation & Setup
 
@@ -283,6 +282,7 @@ This runs both frontend and backend concurrently in development mode.
 
 ---
 
+
 ## Project Structure
 
 ```
@@ -322,6 +322,7 @@ eyra/
 
 ---
 
+
 ## Security & Privacy
 
 ### Authentication & Authorization
@@ -347,6 +348,7 @@ eyra/
 
 ---
 
+
 ## Disclaimer
 
 **Important Notice:**
@@ -366,6 +368,7 @@ If you are experiencing a mental health crisis or severe symptoms, please seek i
 
 ---
 
+
 ## Future Roadmap
 
 ### Planned Enhancements
@@ -382,6 +385,7 @@ If you are experiencing a mental health crisis or severe symptoms, please seek i
 
 ---
 
+
 ## Contributing
 
 We welcome contributions from the community. To contribute:
@@ -396,11 +400,13 @@ Please ensure all code adheres to our style guidelines and includes appropriate 
 
 ---
 
+
 ## License
 
 This project is licensed under the MIT License – see the LICENSE file for details.
 
 ---
+
 
 ## Support
 
@@ -412,6 +418,7 @@ For issues, feature requests, or general inquiries:
 
 ---
 
+
 ## Acknowledgments
 
 Special thanks to:
@@ -422,6 +429,7 @@ Special thanks to:
 
 ---
 
+
 ## ❤️ Final Note
 
 Mental health matters. Eyra is built to provide a **safe, accessible starting point** for understanding and improving emotional well-being. Remember, seeking professional help is a sign of strength, not weakness.
@@ -429,6 +437,7 @@ Mental health matters. Eyra is built to provide a **safe, accessible starting po
 *Take care of your mind. You deserve it.*
 
 ---
+
 
 **Last Updated:** April 2026  
 **Version:** 1.0.0
