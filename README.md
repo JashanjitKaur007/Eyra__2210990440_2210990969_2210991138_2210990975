@@ -22,6 +22,7 @@ An intelligent, accessible, and user-centric platform designed to provide eviden
 ## 📋 Table of Contents
 
 - [Overview](#overview)
+- [Screenshots](#screenshots)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Architecture](#architecture)
@@ -38,6 +39,20 @@ An intelligent, accessible, and user-centric platform designed to provide eviden
 Eyra is a comprehensive mental health support platform that bridges the gap between users seeking help and accessible mental wellness resources. By combining advanced AI technology with clinical psychology principles, Eyra creates a safe, private space for individuals to explore their emotional well-being without judgment or barriers.
 
 **Mission:** To make mental health support more accessible, interactive, and less intimidating.
+
+---
+
+## Screenshots
+
+<div style="width: 800px; height: 400px; overflow: auto; border: 1px solid #ccc; padding: 10px;">
+  <img src="ScreenShots%20of%20Project/1-Home%20Page.png"><br><br>
+  <img src="ScreenShots%20of%20Project/2-homepage.png"><br><br>
+  <img src="ScreenShots%20of%20Project/3-chat.png"><br><br>
+  <img src="ScreenShots%20of%20Project/4-conversation%20report.png"><br><br>
+  <img src="ScreenShots%20of%20Project/5-Tests%20dropdown%20menu.png"><br><br>
+  <img src="ScreenShots%20of%20Project/6-Test%20UI.png"><br><br>
+  <img src="ScreenShots%20of%20Project/7-Depresssoin%20Tests%20Sample%20-%20result,%20email,%20more%20info.png">
+</div>
 
 ---
 
