@@ -64,6 +64,10 @@ app.get('/', (req, res) => {
 app.use('/api/users', userRoutes);
 app.use('/api/chat', chatRoutes);
 
+
+app.use('/api/face', require('./routes/faceAnalysisRoutes'));
+
+
 // Start the server and listen on the specified port (defaulting to 5000 if not set in environment variables). A message is logged to the console indicating that the server is running and on which port it is listening.
 const PORT = process.env.PORT || 5000;
 
