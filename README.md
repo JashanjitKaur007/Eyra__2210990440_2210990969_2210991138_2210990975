@@ -61,7 +61,8 @@ Eyra is a comprehensive mental health support platform that bridges the gap betw
     <img src="Visuals_Screenshots/5-Tests dropdown menu.png" width="700"><br><br>
     <img src="Visuals_Screenshots/6-Test UI.png" width="700"><br><br>
     <img src="Visuals_Screenshots/7-Depresssoin Tests Sample - result, email, more info.png" width="700"><br><br>
-    <img src="Visuals_Screenshots/8-profile.png" width="700">
+    <img src="Visuals_Screenshots/8-profile.png" width="700"><br><br>
+    <img src="Visuals_Screenshots/9-face.png" width="700">
 </p>
 
 </details>
