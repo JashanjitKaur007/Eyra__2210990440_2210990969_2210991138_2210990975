@@ -54,13 +54,14 @@ Eyra is a comprehensive mental health support platform that bridges the gap betw
 <br>
 
 <p align="center">
-  <img src="ScreenShots%20of%20Project/1-Home%20Page.png" width="700"><br><br>
-  <img src="ScreenShots%20of%20Project/2-homepage.png" width="700"><br><br>
-  <img src="ScreenShots%20of%20Project/3-chat.png" width="700"><br><br>
-  <img src="ScreenShots%20of%20Project/4-conversation%20report.png" width="700"><br><br>
-  <img src="ScreenShots%20of%20Project/5-Tests%20dropdown%20menu.png" width="700"><br><br>
-  <img src="ScreenShots%20of%20Project/6-Test%20UI.png" width="700"><br><br>
-  <img src="ScreenShots%20of%20Project/7-Depresssoin%20Tests%20Sample%20-%20result,%20email,%20more%20info.png" width="700">
+    <img src="Visuals_Screenshots/1-Home Page.png" width="700"><br><br>
+    <img src="Visuals_Screenshots/2-homepage.png" width="700"><br><br>
+    <img src="Visuals_Screenshots/3-chat.png" width="700"><br><br>
+    <img src="Visuals_Screenshots/4-conversation report.png" width="700"><br><br>
+    <img src="Visuals_Screenshots/5-Tests dropdown menu.png" width="700"><br><br>
+    <img src="Visuals_Screenshots/6-Test UI.png" width="700"><br><br>
+    <img src="Visuals_Screenshots/7-Depresssoin Tests Sample - result, email, more info.png" width="700"><br><br>
+    <img src="Visuals_Screenshots/7-profile.png" width="700">
 </p>
 
 </details>

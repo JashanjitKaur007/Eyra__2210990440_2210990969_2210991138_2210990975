@@ -1,4 +1,8 @@
 // frontend/src/pages/Home.jsx
+// The Home component is the main interface for the chat application. It manages the state of the conversation, user input, and interactions with the backend API. The component includes a sidebar for navigation between different views (Chat, Crisis Support, Conversation Report, My Profile) and a main content area that displays the chat interface or other views based on user selection. The chat interface allows users to send messages to the AI companion and receive responses, while also providing features like auto-saving conversations, displaying analysis results, and showing crisis support resources when needed.
+
+
+// frontend/src/pages/Home.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { 
@@ -143,6 +147,9 @@ const Home = () => {
     }
   };
 
+
+
+  // Function to start a new chat by clearing the conversation, analysis, helplines, and session ID. It also removes any saved data from localStorage for the current user. This allows the user to start fresh with a new conversation without any previous context.
   const startNewChat = () => {
     setConversation([]);
     setAnalysis(null);
@@ -157,6 +164,8 @@ const Home = () => {
     }
   };
 
+
+  // Sidebar items
   const sidebarItems = [
     { view: 'chat', label: 'Chat', icon: MessageSquare },
     { view: 'crisis', label: 'Crisis Support', icon: Heart },
@@ -239,6 +248,9 @@ const Home = () => {
     </div>
   );
 
+
+
+  // Conversation Report view that displays the analysis results and extracted keywords in a visually appealing format. It also includes a roadmap of the conversation with sentiment indicators for each message, providing insights into the emotional flow of the conversation. This view helps users understand their conversations better and identify key themes or areas of concern.
   return (
     <div className="flex h-screen overflow-hidden bg-[#f8fafc]">
       {/* Sidebar */}

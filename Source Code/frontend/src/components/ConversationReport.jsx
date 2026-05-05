@@ -1,209 +1,17 @@
-// import React, { useEffect, useState, useMemo } from "react";
-
-// const ConversationReport = ({ messages = [] }) => {
-//   const [sentimentData, setSentimentData] = useState({
-//     positive: 0,
-//     neutral: 0,
-//     negative: 0,
-//   });
-//   const [keywords, setKeywords] = useState([]);
-//   const [roadmap, setRoadmap] = useState([]);
-
-//   // Improved sentiment analysis
-//   const analyzeSentiment = (text) => {
-//     if (!text || typeof text !== "string") return "neutral";
-
-//     const positiveWords = [
-//       "good", "great", "excellent", "awesome", "happy", "love", "helpful",
-//       "perfect", "amazing", "wonderful", "fantastic", "yes", "agree"
-//     ];
-//     const negativeWords = [
-//       "bad", "sad", "angry", "frustrated", "terrible", "awful", "hate",
-//       "worst", "stress", "problem", "issue", "wrong", "no", "disagree"
-//     ];
-
-//     const words = text.toLowerCase().split(/\s+/);
-//     let score = 0;
-
-//     words.forEach((word) => {
-//       if (positiveWords.includes(word)) score += 2;
-//       if (negativeWords.includes(word)) score -= 2;
-//     });
-
-//     if (score > 2) return "positive";
-//     if (score < -2) return "negative";
-//     return "neutral";
-//   };
-
-//   // Extract meaningful keywords
-//   const extractKeywords = (msgs) => {
-//     const commonWords = new Set([
-//       "i", "you", "the", "and", "is", "are", "was", "were", "a", "an",
-//       "to", "of", "in", "on", "for", "with", "it", "this", "that", "they"
-//     ]);
-
-//     const freq = {};
-
-//     msgs.forEach((msg) => {
-//       if (!msg?.text) return;
-//       const words = msg.text
-//         .toLowerCase()
-//         .replace(/[^\w\s]/g, "") // remove punctuation
-//         .split(/\s+/)
-//         .filter((w) => w.length > 3 && !commonWords.has(w));
-
-//       words.forEach((word) => {
-//         freq[word] = (freq[word] || 0) + 1;
-//       });
-//     });
-
-//     return Object.entries(freq)
-//       .sort((a, b) => b[1] - a[1])
-//       .slice(0, 6) // top 6 keywords
-//       .map(([word]) => word);
-//   };
-
-//   // Generate conversation roadmap
-//   const generateRoadmap = (msgs) => {
-//     return msgs.map((msg, index) => ({
-//       step: index + 1,
-//       text: msg.text?.trim() || "",
-//       sentiment: analyzeSentiment(msg.text),
-//       timestamp: msg.timestamp || null,
-//     }));
-//   };
-
-//   // Memoized calculations for better performance
-//   const processedData = useMemo(() => {
-//     if (!messages || messages.length === 0) {
-//       return {
-//         sentimentData: { positive: 0, neutral: 0, negative: 0 },
-//         keywords: [],
-//         roadmap: [],
-//       };
-//     }
-
-//     let pos = 0, neu = 0, neg = 0;
-
-//     messages.forEach((msg) => {
-//       const sentiment = analyzeSentiment(msg.text);
-//       if (sentiment === "positive") pos++;
-//       else if (sentiment === "neutral") neu++;
-//       else neg++;
-//     });
-
-//     return {
-//       sentimentData: { positive: pos, neutral: neu, negative: neg },
-//       keywords: extractKeywords(messages),
-//       roadmap: generateRoadmap(messages),
-//     };
-//   }, [messages]);
-
-//   // Update state when processed data changes
-//   useEffect(() => {
-//     setSentimentData(processedData.sentimentData);
-//     setKeywords(processedData.keywords);
-//     setRoadmap(processedData.roadmap);
-//   }, [processedData]);
-
-//   // Calculate total messages for percentage
-//   const totalMessages = messages.length;
-//   const sentimentPercentages = useMemo(() => ({
-//     positive: totalMessages ? Math.round((sentimentData.positive / totalMessages) * 100) : 0,
-//     neutral: totalMessages ? Math.round((sentimentData.neutral / totalMessages) * 100) : 0,
-//     negative: totalMessages ? Math.round((sentimentData.negative / totalMessages) * 100) : 0,
-//   }), [sentimentData, totalMessages]);
-
-//   if (messages.length === 0) {
-//     return (
-//       <div className="conversation-report empty">
-//         <h3>Live Conversation Report</h3>
-//         <p>No messages yet. Start chatting to see live analytics.</p>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="conversation-report" style={{ 
-//       borderTop: "1px solid #e0e0e0", 
-//       padding: "16px", 
-//       marginTop: "12px",
-//       backgroundColor: "#f9f9f9",
-//       borderRadius: "8px"
-//     }}>
-//       <h3>Live Conversation Report</h3>
-
-//       {/* Sentiment Analysis */}
-//       <div style={{ marginBottom: "16px" }}>
-//         <strong>Sentiment Analysis</strong>
-//         <div style={{ display: "flex", gap: "12px", marginTop: "8px", flexWrap: "wrap" }}>
-//           <div>😊 Positive: {sentimentData.positive} ({sentimentPercentages.positive}%)</div>
-//           <div>😐 Neutral: {sentimentData.neutral} ({sentimentPercentages.neutral}%)</div>
-//           <div>😠 Negative: {sentimentData.negative} ({sentimentPercentages.negative}%)</div>
-//         </div>
-//       </div>
-
-//       {/* Key Topics */}
-//       <div style={{ marginBottom: "16px" }}>
-//         <strong>Key Topics</strong>
-//         <div style={{ marginTop: "8px" }}>
-//           {keywords.length > 0 ? (
-//             keywords.map((keyword, idx) => (
-//               <span
-//                 key={idx}
-//                 style={{
-//                   display: "inline-block",
-//                   background: "#e3f2fd",
-//                   padding: "4px 10px",
-//                   margin: "4px 6px 4px 0",
-//                   borderRadius: "16px",
-//                   fontSize: "14px",
-//                 }}
-//               >
-//                 #{keyword}
-//               </span>
-//             ))
-//           ) : (
-//             "No significant topics detected yet"
-//           )}
-//         </div>
-//       </div>
-
-//       {/* Discussion Roadmap */}
-//       <div>
-//         <strong>Conversation Flow</strong>
-//         <ol style={{ marginTop: "8px", paddingLeft: "20px" }}>
-//           {roadmap.map((step) => (
-//             <li key={step.step} style={{ marginBottom: "8px" }}>
-//               <span
-//                 style={{
-//                   fontWeight: "bold",
-//                   color: step.sentiment === "positive" ? "green" :
-//                          step.sentiment === "negative" ? "red" : "orange",
-//                 }}
-//               >
-//                 [{step.sentiment.toUpperCase()}]
-//               </span>{" "}
-//               {step.text}
-//             </li>
-//           ))}
-//         </ol>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ConversationReport;
+// ConversationReport.jsx
+// This component generates a mental health report based on the user's conversation history. It analyzes the mood and sentiment of the messages, identifies emotional patterns, and provides insights and recommendations. The report includes visualizations such as line charts for mood trends, pie charts for emotional breakdowns, and bar charts for time-of-day analysis. It also offers personalized recommendations based on the user's data.
 
 
-
-
+// Import necessary modules and components
 import React, { useEffect, useState, useMemo } from "react";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, BarChart, Bar,
   Area, AreaChart
 } from "recharts";
+
+
+// Utility function to analyze sentiment of a message. This is a simple implementation that checks for the presence of positive and negative words to determine the overall sentiment of the message. The function returns "positive", "negative", or "neutral" based on the analysis.
 
 // Calming color palette
 const colors = {
@@ -219,6 +27,8 @@ const colors = {
   card: "#FFFFFF",
 };
 
+
+// Function to analyze the sentiment of a message based on the presence of positive and negative words. This is a basic implementation that can be enhanced with more sophisticated natural language processing techniques for better accuracy.
 const MentalHealthReport = ({ messages = [] }) => {
   const [moodData, setMoodData] = useState([]);
   const [sentimentData, setSentimentData] = useState({ positive: 0, neutral: 0, negative: 0 });

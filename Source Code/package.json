@@ -12,6 +12,7 @@
     "concurrently": "^9.2.1"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1"
+    "@emailjs/browser": "^4.4.1",
+    "node-fetch": "^3.3.2"
   }
 }

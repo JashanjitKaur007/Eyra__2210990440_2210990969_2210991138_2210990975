@@ -1,5 +1,8 @@
+// App.jsx - Main application component that sets up routing, authentication context, and error boundaries. It defines protected routes for authenticated users and public routes for unauthenticated users. The app includes a navbar and footer that are conditionally rendered based on the user's authentication status. It also imports various pages and components used throughout the application, as well as internationalization support.
 
 
+
+// Import necessary modules and components
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
@@ -13,7 +16,6 @@ import About from './pages/About';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
-import DebugPanel from './components/DebugPanel';
 import './utils/i18n';
 
 // import tests - 
@@ -38,6 +40,9 @@ const PublicRoute = ({ children }) => {
   return user ? <Navigate to="/about" /> : children;
 };
 
+
+
+// AppContent component that contains the main structure of the application, including the navbar, footer, and routing logic. It conditionally renders the navbar and footer based on the user's authentication status and defines the routes for different pages in the application, including protected routes for authenticated users and public routes for unauthenticated users.
 function AppContent() {
   const { user } = useAuth();
 
@@ -128,7 +133,6 @@ function AppContent() {
         </Routes>
       )}
 
-      <DebugPanel />
     </div>
   );
 }
@@ -145,4 +149,6 @@ function App() {
   );
 }
 
+
+// Export the App component as the default export
 export default App;

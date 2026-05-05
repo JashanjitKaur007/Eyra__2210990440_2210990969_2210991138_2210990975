@@ -1,6 +1,10 @@
+// This is the loading screen component that is displayed while the app is initializing. It features a calming design with a leaf icon and a subtle progress bar to indicate that the app is preparing a calm space for the user. The design uses a soft color palette and smooth animations to create a soothing experience during the loading process.
+
 import React from 'react';
 import { Leaf, Loader2 } from 'lucide-react';
 
+
+// LoadingScreen component definition
 const LoadingScreen = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 flex items-center justify-center px-6">
@@ -23,13 +27,13 @@ const LoadingScreen = () => {
 
         {/* Subtitle */}
         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-          Preparing a calm space for you...
+          Gathering insights for you...
         </p>
 
         {/* Loader */}
         <div className="flex items-center justify-center gap-2 text-slate-500">
           <Loader2 className="w-5 h-5 animate-spin" />
-          <span className="text-sm">Getting things ready</span>
+          <span className="text-sm">gathering insights</span>
         </div>
 
         {/* Subtle Progress Bar */}
@@ -44,4 +48,6 @@ const LoadingScreen = () => {
   );
 };
 
+
+// Export the LoadingScreen component as the default export
 export default LoadingScreen;

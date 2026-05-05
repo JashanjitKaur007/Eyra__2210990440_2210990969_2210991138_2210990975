@@ -1,10 +1,18 @@
+// This is the AuthContext component that provides authentication state and functions to the rest of the app. It uses React Context to manage user authentication status, login, registration, and logout functionality. The context also handles token storage and retrieval from localStorage, as well as setting up axios interceptors for API requests. The design focuses on security and user experience, ensuring that authentication flows are smooth and reliable.
+
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import LoadingScreen from '../components/LoadingScreen';
 import { safeParseJSON, safeStorageGet, safeStorageSet, clearCorruptedStorage } from '../utils/storage';
 
+
+// Create the AuthContext and provide a custom hook for accessing it. The AuthProvider component manages the authentication state and provides functions for login, registration, and logout. It also handles token storage and retrieval, as well as setting up axios interceptors for API requests.
 const AuthContext = createContext();
 
+
+
+// Custom hook to access the AuthContext. This hook ensures that the context is used within an AuthProvider and provides access to the authentication state and functions.
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -13,6 +21,9 @@ export const useAuth = () => {
   return context;
 };
 
+
+
+// AuthProvider component definition. This component manages the authentication state and provides functions for login, registration, and logout. It also handles token storage and retrieval, as well as setting up axios interceptors for API requests. The component displays a loading screen while initializing the authentication state.
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -51,6 +62,9 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
+
+  // Functions for login, registration, and logout
+
   const login = async (email, password) => {
     try {
       const response = await axios.post('/users/login', { email, password });
@@ -73,6 +87,9 @@ export const AuthProvider = ({ children }) => {
       };
     }
   };
+
+
+  // Registration function that sends a POST request to the /users/register endpoint with the user's name, email, and password. If the registration is successful, it stores the returned token and user data in localStorage and sets the user state. If there is an error during registration, it returns an appropriate error message.
 
   const register = async (name, email, password) => {
     try {
@@ -97,6 +114,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+
+
+  // Logout function that clears the token and user data from localStorage, removes the Authorization header from axios, and resets the user state to null. This effectively logs the user out of the application.
   const logout = () => {
     try {
       localStorage.removeItem('token');
@@ -116,6 +136,9 @@ export const AuthProvider = ({ children }) => {
     loading
   };
 
+
+
+  // Render the AuthContext provider with the authentication state and functions. If the authentication state is still loading (e.g., checking for existing token), it displays a loading screen. Once loading is complete, it renders the child components that are wrapped by the AuthProvider.
   return (
     <AuthContext.Provider value={value}>
       {loading ? <LoadingScreen /> : children}

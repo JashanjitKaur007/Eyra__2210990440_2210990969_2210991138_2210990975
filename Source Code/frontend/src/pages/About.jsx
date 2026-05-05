@@ -765,47 +765,7 @@ const FAQSection = () => {
   <FAQSection />
 </div>
 
-
-
-
-
-      {/* Final CTA */}
-      <div className="bg-gradient-to-br from-emerald-700 via-teal-700 to-cyan-700 py-32 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-6xl md:text-7xl font-semibold tracking-tighter leading-none mb-8">
-            Ready to feel a little lighter?
-          </h2>
-          <p className="text-2xl text-white/90 mb-14 max-w-2xl mx-auto">
-            Join thousands who have already started their gentle journey toward better mental wellbeing.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a
-              href="/register"
-              className="bg-white text-emerald-700 px-16 py-7 rounded-3xl font-semibold text-2xl shadow-2xl hover:bg-slate-50 transition-all hover:scale-105"
-            >
-              Create Your Free Account
-            </a>
-            <a
-              href="/home"
-              className="border-2 border-white/80 hover:bg-white/10 px-14 py-7 rounded-3xl font-semibold text-2xl transition-all"
-            >
-              Try Face Analysis
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer Note */}
-      <div className="bg-white py-20 border-t border-slate-100">
-        <div className="max-w-4xl mx-auto px-6 text-center text-slate-500 text-sm leading-relaxed">anytime, anywhere..
-          <p className="font-medium text-slate-700 mb-3"><span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">A gentle reminder</span></p>
-          <p>
-            eyra offers supportive AI-guided insights and is not a replacement for professional mental health treatment. 
-            If you are in crisis or need immediate help, please reach out to a licensed therapist or your local emergency mental health services.
-          </p>
-        </div>
-      </div>
+      
     </div>
   );
 };

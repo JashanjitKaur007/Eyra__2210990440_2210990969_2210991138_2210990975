@@ -6,34 +6,34 @@ const generateToken = require('../utils/generateToken');
  * @route   POST /api/users/register
  * @access  Public
  */
-const registerUser = async (req, res) => {
+const UserRegistered = async (req, res) => {
   try {
-    // Get name, email, and password from the request body
+// Extract name, email, and password from the request body - these are the required fields for registration
     const { name, email, password } = req.body;
 
-    // Validate required fields
+// Validate that all required fields are provided - if any are missing, return a 400 Bad Request with an appropriate message
     if (!name || !email || !password) {
       res.status(400).json({ message: 'Please provide all required fields: name, email, password' });
       return;
     }
 
-    // Check if a user with this email already exists
-    const userExists = await User.findOne({ email });
+    // Check if a user with the provided email already exists in the database - this prevents duplicate registrations
+    const ExistingUser = await User.findOne({ email });
 
-    if (userExists) {
+    if (ExistingUser) {
       res.status(400).json({ message: 'User already exists' });
       return; // Stop execution
     }
 
-    // Create a new user in the database
-    // The password will be automatically hashed by the middleware in userModel.js
+
+    // Create a new user in the database with the provided name, email, and password - the User model will handle password hashing
     const user = await User.create({
       name,
       email,
       password,
     });
 
-    // If the user was created successfully
+// If the user was successfully created, send back a response with the user's data and a generated token for authentication. The token can be used for subsequent requests to protected routes.
     if (user) {
       // Send back the user's data and a token
       res.status(201).json({
@@ -61,20 +61,21 @@ const registerUser = async (req, res) => {
  * @route   POST /api/users/login
  * @access  Public
  */
-const authUser = async (req, res) => {
+const UserAuthorized = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Validate required fields
+
+    // Validate that both email and password are provided - if either is missing, return a 400 Bad Request with an appropriate message
     if (!email || !password) {
       res.status(400).json({ message: 'Please provide email and password' });
       return;
     }
 
-    // Find the user by their email
+// Find the user in the database by their email - this is necessary to check if the user exists and to verify the password
     const user = await User.findOne({ email });
 
-    // Check if user exists AND if the entered password matches the stored one
+// If the user exists and the provided password matches the hashed password in the database, send back a response with the user's data and a generated token for authentication. If the credentials are invalid, return a 401 Unauthorized with an appropriate message.
     if (user && (await user.matchPassword(password))) {
       res.json({
         token: generateToken(user._id),
@@ -85,7 +86,6 @@ const authUser = async (req, res) => {
         },
       });
     } else {
-      // Use a generic error message for security
       res.status(401).json({ message: 'Invalid email or password' });
     }
   } catch (error) {
@@ -97,4 +97,5 @@ const authUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, authUser };
+// Export the controller functions for use in other parts of the application
+module.exports = { UserRegistered, UserAuthorized };

@@ -1,6 +1,9 @@
 
+// AccountInformation.jsx
+// This component displays the user's account information and allows them to edit their profile details. It uses the useAuth hook to access the current user's information and provides a form for updating their name, email, and password. The component also includes loading states and validation for password changes.
 
-// frontend/src/components/AccountInformation.jsx
+
+// Import necessary modules and components
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { 
@@ -8,6 +11,8 @@ import {
   Sparkles, Shield 
 } from "lucide-react";
 
+
+// Define the AccountInformation component
 const AccountInformation = () => {
   const { user } = useAuth();
 
@@ -22,6 +27,8 @@ const AccountInformation = () => {
     confirmPassword: "",
   });
 
+
+  // Populate the edit form with the current user's information when the component mounts or when the user data changes. This ensures that the form fields are pre-filled with the existing information, making it easier for the user to update their details without having to re-enter all their information.
   useEffect(() => {
     if (user) {
       setEditFormData({
@@ -33,11 +40,15 @@ const AccountInformation = () => {
     }
   }, [user]);
 
+
+  // Handle changes to the form fields by updating the editFormData state. This function is called whenever the user types into any of the input fields, allowing the component to keep track of the current values in the form.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+
+  // Handle the save button click event. This function is called when the user clicks the "Save" button to update their profile information. It performs validation to ensure that the passwords match, and if they do, it updates the user's information in the local storage and reloads the page to reflect the changes.
   const handleSave = () => {
     if (editFormData.password && editFormData.password !== editFormData.confirmPassword) {
       alert("Passwords do not match!");
@@ -46,7 +57,7 @@ const AccountInformation = () => {
 
     setLoading(true);
 
-    // Simulate API update (replace with real backend call later)
+
     setTimeout(() => {
       const updatedUser = { 
         ...user, 
@@ -58,7 +69,7 @@ const AccountInformation = () => {
       
       setLoading(false);
       setIsEditing(false);
-      window.location.reload(); // Temporary - replace with context update later
+      window.location.reload(); 
     }, 800);
   };
 
@@ -69,6 +80,8 @@ const AccountInformation = () => {
       </div>
     );
   }
+
+  // Render the component, displaying the user's account information and providing an interface for editing their profile details. The component includes a header with the user's name and email, as well as cards displaying their full name, email address, and membership date. When in edit mode, it shows a form for updating these details along with password change options. The component also handles loading states and provides feedback to the user during the update process.
 
   return (
     <div className="max-w-3xl mx-auto py-8 px-6">

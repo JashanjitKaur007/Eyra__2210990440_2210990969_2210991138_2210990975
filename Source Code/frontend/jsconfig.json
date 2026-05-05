@@ -1,3 +1,5 @@
+// jsconfig.json - Configuration file for JavaScript projects that provides settings for the JavaScript language service. It specifies the base URL for module resolution and defines path aliases for easier imports. In this case, it sets the base URL to the current directory and creates an alias '@' that maps to the 'src' directory, allowing for cleaner and more maintainable import statements throughout the project.
+
 {
   "compilerOptions": {
     "baseUrl": ".",

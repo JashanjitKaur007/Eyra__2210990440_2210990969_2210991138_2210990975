@@ -15,6 +15,8 @@ export const clearCorruptedStorage = () => {
   }
 };
 
+
+// Utility functions for localStorage management
 export const safeParseJSON = (jsonString, fallback = null) => {
   try {
     if (!jsonString || jsonString === 'undefined' || jsonString === 'null') {
@@ -27,6 +29,8 @@ export const safeParseJSON = (jsonString, fallback = null) => {
   }
 };
 
+
+// Function to safely set an item in localStorage. It converts the value to a string (if it's not already) and handles any errors that may occur during the process, such as quota exceeded errors or issues with stringifying complex objects.
 export const safeStorageSet = (key, value) => {
   try {
     const stringValue = typeof value === 'string' ? value : JSON.stringify(value);
@@ -36,6 +40,8 @@ export const safeStorageSet = (key, value) => {
   }
 };
 
+
+// Function to safely get an item from localStorage. It retrieves the value associated with the given key and checks if it's valid (not 'undefined' or 'null'). If the value is valid, it returns it; otherwise, it returns a specified fallback value. This function also handles any errors that may occur during the retrieval process.
 export const safeStorageGet = (key, fallback = null) => {
   try {
     const value = localStorage.getItem(key);
